@@ -1,0 +1,23 @@
+[
+  {
+    "type": "message",
+    "user": "U02MRT6HB",
+    "user_name": "marta.velasco",
+    "text": "Looking. The errors are all 'invalid stream' from the PDF renderer.",
+    "ts": "1784625430.000100"
+  },
+  {
+    "type": "message",
+    "user": "U02MRT6HB",
+    "user_name": "marta.velasco",
+    "text": "They started after v5.8.0 went out. Rolling back.",
+    "ts": "1784625645.000200"
+  },
+  {
+    "type": "message",
+    "user": "U02MRT6HB",
+    "user_name": "marta.velasco",
+    "text": "Error rate has been zero since the rollback.",
+    "ts": "1784626260.000100"
+  }
+]

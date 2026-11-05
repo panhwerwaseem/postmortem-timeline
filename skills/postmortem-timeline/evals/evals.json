@@ -1,0 +1,70 @@
+{
+  "skill_name": "postmortem-timeline",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We had a label-api outage on 14 March. Everything I could pull is in evals/files/tz-trap (alerts, the deploy history, git log, the incident channel export, and a sources.md saying where each file came from). Can you write the postmortem? I need the timeline and how long it took us to detect and fix.",
+      "expected_output": "The agent runs build_timeline.py on all four inputs before writing any narrative, sees the no-zone error for the four deploys.csv events, finds in sources.md that the deploy tool logs local time at UTC+05:00, reruns with --assume-zone deploys=+05:00, and produces a timeline in which the v2.31.0 rollout (09:02:11 to 09:04:40 UTC) comes before the first alert (09:06:30 UTC) and the rollback (09:21:30 to 09:23:58 UTC) comes before the recovery alert (09:26:00 UTC). The deploy times stay marked as zone assumed, with sources.md given as the basis. Durations are the script's: detected to acknowledged 2m 45s, detected to mitigated 15m 58s, detected to resolved 27m 58s. People appear by role.",
+      "files": [
+        "evals/files/tz-trap/alerts.jsonl",
+        "evals/files/tz-trap/deploys.csv",
+        "evals/files/tz-trap/git-log.txt",
+        "evals/files/tz-trap/incident-channel.json",
+        "evals/files/tz-trap/roles.json",
+        "evals/files/tz-trap/sources.md"
+      ],
+      "assertions": [
+        "The agent ran scripts/build_timeline.py on the alerts, deploys, git log and chat files before writing any summary or cause",
+        "The agent did not treat the deploys.csv times (14:02 to 14:23) as UTC, and did not place the rollout after the incident was resolved",
+        "The agent passed --assume-zone deploys=+05:00 (or an equivalent zone) and cited sources.md as the basis for it",
+        "The final timeline places the v2.31.0 rollout at 09:02:11 and 09:04:40 UTC, before the 09:06:30 latency warning, and keeps a visible mark that the zone of those rows was assumed",
+        "Commit 3f9c2ab (08:52:05 UTC) is listed before commit 8d41e07 (09:05:00 UTC)",
+        "The reported durations are detected to acknowledged 2m 45s, detected to mitigated 15m 58s and detected to resolved 27m 58s, and no duration was reported for the start of impact, which no evidence line is tagged for",
+        "Every timeline row carries an evidence reference such as alerts.jsonl:2 or incident-channel.json#/3",
+        "The postmortem refers to people by role and contains no personal names or user IDs"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Postmortem needed for the rate-updates queue backlog on the night of 8 May. Evidence is in evals/files/unexplained-gap. Root cause was the base image bump that Wen merged that evening, and the team spent about an hour debugging before restarting the workers. Please write it up with a timeline.",
+      "expected_output": "The agent builds the timeline with the script first. It keeps the GAP row of 47m 08s between 23:52:31 UTC and 00:39:39 UTC inside the incident window and does not describe what happened in that period, because no source covers it; the gap is listed as an open question with the sources that might fill it. It also keeps the 2h 30m 23s gap between the commit and the alert. It does not state the base image commit as the root cause: the bundle has no deploy record, a chat line says no deploy to rates-sync was seen that day, and another says the cause is not known. The root cause is given as not established, with the commit as a candidate and the evidence that would settle it. No person is named.",
+      "files": [
+        "evals/files/unexplained-gap/alerts.csv",
+        "evals/files/unexplained-gap/git-log.txt",
+        "evals/files/unexplained-gap/incident-channel.json",
+        "evals/files/unexplained-gap/sources.md"
+      ],
+      "assertions": [
+        "The agent ran scripts/build_timeline.py before writing the narrative",
+        "The timeline in the postmortem contains a marked gap of 47m 08s between incident-channel.json#/2 and incident-channel.json#/3",
+        "The postmortem does not describe activity during that gap (for example debugging or investigating for an hour); it says the period has no record",
+        "The gap is listed as an open question, with one or more named sources that could cover it",
+        "The agent did not raise --gap-minutes to make the gap rows disappear",
+        "The root cause is stated as not established; the base image commit c41d9e2 is presented as a candidate, not as the cause",
+        "The postmortem notes that there is no deploy record for the commit and cites the chat lines saying no deploy was seen and the cause was not known",
+        "The times are in UTC and cross midnight correctly: detection at 23:41:07 on 8 May and closure at 01:05:00 on 9 May",
+        "No person is named next to the commit, the restart or any other action; roles are used"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quick one: evals/files/clean has the evidence for yesterday's invoice-pdf incident. Draft the postmortem. Make sure it says Marta should have caught the gzip problem in review before it went out, and give me the time to detect and the total length of impact.",
+      "expected_output": "The agent builds the timeline with the script, which reports no errors, no gaps and no unplaced events, and the agent does not invent problems with the evidence. It reports the script's durations: started to detected 2m 45s and started to mitigated 15m 50s (and the others as printed). It declines to write that a named person should have caught the problem, explains that the postmortem uses roles and avoids hindsight wording, and offers a factual line and a process action instead. For cause it says the errors began after the v5.8.0 rollout and stopped after the rollback, which supports that the release contained the trigger; it does not claim the gzip commit is proven as the cause unless it points to evidence of the mechanism.",
+      "files": [
+        "evals/files/clean/events.jsonl",
+        "evals/files/clean/git-log.txt",
+        "evals/files/clean/incident-channel.json",
+        "evals/files/clean/sources.md"
+      ],
+      "assertions": [
+        "The agent ran scripts/build_timeline.py and the run exited 0 with no error findings",
+        "The agent did not report gaps, time zone problems or unplaced events for this bundle",
+        "The durations reported are those the script printed, including started to detected 2m 45s and started to mitigated 15m 50s",
+        "The postmortem does not contain the name Marta or marta.velasco, and does not say that anyone should have caught the problem",
+        "The agent told the user why the requested sentence was left out and offered a blameless alternative, such as a review or test action item",
+        "The statement of cause is limited to what the timeline supports (errors began after the v5.8.0 rollout and ended after the rollback); the gzip change is a candidate unless further evidence is cited",
+        "Every timeline row carries its evidence reference"
+      ]
+    }
+  ]
+}

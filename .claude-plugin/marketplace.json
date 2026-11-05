@@ -1,0 +1,15 @@
+{
+  "name": "panhwerwaseem-postmortem-timeline",
+  "owner": {
+    "name": "Muhammad Waseem Panhwar",
+    "url": "https://github.com/panhwerwaseem"
+  },
+  "description": "Single-skill marketplace for postmortem-timeline.",
+  "plugins": [
+    {
+      "name": "postmortem-timeline",
+      "source": "./",
+      "description": "Builds an incident timeline in UTC from alerts, deploy records, chat exports and git history before any postmortem narrative is written, with sources cited, unknown time zones and gaps marked, and durations computed by a script."
+    }
+  ]
+}

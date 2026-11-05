@@ -1,0 +1,44 @@
+[
+  {
+    "type": "message",
+    "user": "U07RHL4QX",
+    "user_name": "rhea.lindqvist",
+    "text": "Looking at the label-api 5xx page. Dashboards show errors started a few minutes ago.",
+    "ts": "1773479610.000200"
+  },
+  {
+    "type": "message",
+    "user": "U07RHL4QX",
+    "user_name": "rhea.lindqvist",
+    "text": "DB connections on label-api are pinned at 10 of 10. Requests are queueing for a connection.",
+    "ts": "1773479720.000300"
+  },
+  {
+    "type": "message",
+    "user": "U03TMA9KD",
+    "user_name": "tomas.achterberg",
+    "text": "v2.31.0 went out today and it has the pool size change. <@U07RHL4QX> do you want a rollback?",
+    "ts": "1773479862.000100"
+  },
+  {
+    "type": "message",
+    "user": "U07RHL4QX",
+    "user_name": "rhea.lindqvist",
+    "text": "Yes, roll back to v2.30.4.",
+    "ts": "1773479945.000400"
+  },
+  {
+    "type": "message",
+    "user": "U03TMA9KD",
+    "user_name": "tomas.achterberg",
+    "text": "Rollback finished. 5xx is dropping.",
+    "ts": "1773480430.000100"
+  },
+  {
+    "type": "message",
+    "user": "U07RHL4QX",
+    "user_name": "rhea.lindqvist",
+    "text": "Error rate is at baseline. Watching latency before closing.",
+    "ts": "1773480675.000200"
+  }
+]

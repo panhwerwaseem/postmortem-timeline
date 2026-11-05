@@ -1,0 +1,5 @@
+timestamp,source,text
+2026-03-14 14:02:11,deploys,label-api v2.31.0 rollout to production started
+2026-03-14 14:04:40,deploys,label-api v2.31.0 rollout to production finished
+2026-03-14 14:21:30,deploys,label-api rollback to v2.30.4 started
+2026-03-14 14:23:58,deploys,label-api rollback to v2.30.4 finished

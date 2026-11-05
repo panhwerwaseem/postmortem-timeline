@@ -1,0 +1,27 @@
+{
+  "skill_name": "postmortem-timeline",
+  "should_trigger": [
+    "write the postmortem for last night's checkout outage, here are the alert export and the Slack channel export",
+    "can you build an incident timeline from these PagerDuty entries, the deploy log and git log",
+    "I need to reconstruct what happened when during Tuesday's database failover",
+    "we need a blameless post-incident review doc for INC-2291, evidence is in ./incident",
+    "what was our time to detect and time to mitigate for the payments incident? raw exports attached",
+    "merge these alert, deploy and chat timestamps into one UTC timeline for the RCA document",
+    "the deploy log is in local time and the alerts are in UTC, help me line them up for the incident report",
+    "draft the outage report for the API downtime on the 3rd, I have the incident channel export and the CI history",
+    "turn this Slack war-room export and the alert history into a sequence of events for the incident review meeting",
+    "my manager wants the postmortem by Friday, starting from the timeline. Logs and exports are in the evidence folder"
+  ],
+  "should_not_trigger": [
+    "production is down right now, help me figure out what is wrong",
+    "find the root cause of these stack traces in the application log",
+    "set up alert rules and an escalation policy for the checkout service",
+    "summarise this Slack thread about the roadmap",
+    "convert the timestamp column in this CSV from local time to UTC",
+    "write a status page update for the outage that is still going on",
+    "write an on-call runbook for database failover",
+    "generate release notes from git log since the last tag",
+    "calculate our average time to resolve across all incidents last quarter from this spreadsheet",
+    "write up the notes from our sprint retrospective"
+  ]
+}

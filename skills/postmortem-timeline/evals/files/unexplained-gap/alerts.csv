@@ -1,0 +1,5 @@
+timestamp,source,text,tag,actor
+2026-05-09T01:41:07+02:00,monitor,CRIT rate-updates queue depth above 50000 for 5m; paging primary on-call,detected,
+2026-05-09T01:44:20+02:00,pager,Page acknowledged,acknowledged,wen.oyelaran
+2026-05-09T02:43:10+02:00,monitor,OK rate-updates queue depth below 50000,mitigated,
+2026-05-09T03:05:00+02:00,monitor,OK rate-updates queue depth below 1000; incident closed,resolved,

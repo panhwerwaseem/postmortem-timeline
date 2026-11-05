@@ -1,0 +1,51 @@
+[
+  {
+    "type": "message",
+    "user": "U05WEN2PL",
+    "user_name": "wen.oyelaran",
+    "text": "Queue depth on rate-updates is climbing. The rates-sync consumers show as running but nothing is being acked.",
+    "ts": "1778283975.000100"
+  },
+  {
+    "type": "message",
+    "user": "U05WEN2PL",
+    "user_name": "wen.oyelaran",
+    "text": "I can see no deploys to rates-sync today. Checking the broker.",
+    "ts": "1778284180.000200"
+  },
+  {
+    "type": "message",
+    "user": "U05WEN2PL",
+    "user_name": "wen.oyelaran",
+    "text": "Broker looks healthy. All of the consumer lag is on rates-sync.",
+    "ts": "1778284351.000100"
+  },
+  {
+    "type": "message",
+    "user": "U05WEN2PL",
+    "user_name": "wen.oyelaran",
+    "text": "Restarted the rates-sync worker pool. Queue is draining.",
+    "ts": "1778287179.000300"
+  },
+  {
+    "type": "message",
+    "user": "U09IDR7VC",
+    "user_name": "idris.haugland",
+    "text": "Depth is under 50k and falling. Do we know why it wedged?",
+    "ts": "1778287622.000100"
+  },
+  {
+    "type": "message",
+    "user": "U05WEN2PL",
+    "user_name": "wen.oyelaran",
+    "text": "Not yet. Nothing obvious in the worker logs before the restart.",
+    "ts": "1778287710.000200"
+  },
+  {
+    "type": "message",
+    "user": "U05WEN2PL",
+    "user_name": "wen.oyelaran",
+    "text": "Depth is under 5k. Leaving the page open until the alert clears.",
+    "ts": "1778288292.000100"
+  }
+]

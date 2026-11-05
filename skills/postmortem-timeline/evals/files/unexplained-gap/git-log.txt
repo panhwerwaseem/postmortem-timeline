@@ -1,0 +1,1 @@
+c41d9e2	2026-05-08T23:10:44+02:00	Bump rates-sync base image to 3.12-slim

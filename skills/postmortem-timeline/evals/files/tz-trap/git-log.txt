@@ -1,0 +1,2 @@
+8d41e07	2026-03-14T02:05:00-07:00	Update carrier rate table docs
+3f9c2ab	2026-03-14T14:22:05+05:30	Lower label-api DB pool size from 40 to 10

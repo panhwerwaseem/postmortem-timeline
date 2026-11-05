@@ -1,0 +1,18 @@
+{
+  "name": "postmortem-timeline",
+  "description": "Builds an incident timeline in UTC from alerts, deploy records, chat exports and git history before any postmortem narrative is written, with sources cited, unknown time zones and gaps marked, and durations computed by a script.",
+  "author": {
+    "name": "Muhammad Waseem Panhwar",
+    "url": "https://github.com/panhwerwaseem"
+  },
+  "homepage": "https://github.com/panhwerwaseem/postmortem-timeline",
+  "repository": "https://github.com/panhwerwaseem/postmortem-timeline",
+  "license": "MIT",
+  "keywords": [
+    "postmortem",
+    "incident-response",
+    "timeline",
+    "sre",
+    "agent-skills"
+  ]
+}

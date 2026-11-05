@@ -1,0 +1,7 @@
+{"timestamp": "2026-07-21T10:10:00+01:00", "source": "deploys", "text": "invoice-pdf v5.8.0 rollout to production finished"}
+{"timestamp": "2026-07-21T09:11:40.512Z", "source": "access-log", "text": "First HTTP 500 from invoice-pdf (GET /invoices/88412.pdf)", "tag": "started"}
+{"timestamp": "2026-07-21T09:14:25Z", "source": "monitor", "text": "CRIT invoice-pdf error rate above 2% for 2m; paging primary on-call", "tag": "detected"}
+{"timestamp": "2026-07-21T09:16:03Z", "source": "pager", "text": "Page acknowledged", "actor": "marta.velasco", "tag": "acknowledged"}
+{"timestamp": "2026-07-21T10:24:50+01:00", "source": "deploys", "text": "invoice-pdf rollback to v5.7.3 finished"}
+{"timestamp": "2026-07-21T09:27:30Z", "source": "monitor", "text": "OK invoice-pdf error rate below 2%", "tag": "mitigated"}
+{"timestamp": "2026-07-21T09:40:00Z", "source": "monitor", "text": "Incident closed after 10m with no errors", "tag": "resolved"}

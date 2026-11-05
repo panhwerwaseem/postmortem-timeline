@@ -1,0 +1,5 @@
+{"timestamp": "2026-03-14T09:06:30Z", "source": "monitor", "text": "WARN label-api p99 latency above 2s for 1m"}
+{"timestamp": "2026-03-14T09:10:02Z", "source": "monitor", "text": "CRIT label-api HTTP 5xx rate above 5% for 2m; paging primary on-call", "tag": "detected"}
+{"timestamp": "2026-03-14T09:12:47Z", "source": "pager", "text": "Page acknowledged", "actor": "rhea.lindqvist", "tag": "acknowledged"}
+{"timestamp": "2026-03-14T09:26:00Z", "source": "monitor", "text": "OK label-api HTTP 5xx rate below 5%", "tag": "mitigated"}
+{"timestamp": "2026-03-14T09:38:00Z", "source": "monitor", "text": "OK label-api p99 latency below 2s; incident closed", "tag": "resolved"}
